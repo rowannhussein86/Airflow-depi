@@ -26,13 +26,11 @@ Task 1 → Task 2 → Task 3
 4. Ensure all tasks succeed (check logs in Airflow UI)
 
 ---
-
 ## 📸 Screenshots
-- DAG Graph View
-![ DAG Graph View](/images/screenshot1.png)
+- DAG Graph View  
+  ![DAG Graph View](/images/screenshot1.png)
 - Task Logs  
-1[Task Logs](/images/screenshot2.png)
----
+  ![Task Logs](/images/screenshot2.png)
 
 ## 📝 Notes
 - Task 1: Prints the current system date in Bash  
