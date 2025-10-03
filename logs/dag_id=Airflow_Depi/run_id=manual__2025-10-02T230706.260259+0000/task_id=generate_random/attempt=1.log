@@ -1,0 +1,44 @@
+[2025-10-02T23:07:14.519+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T23:07:14.554+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Airflow_Depi.generate_random manual__2025-10-02T23:07:06.260259+00:00 [queued]>
+[2025-10-02T23:07:14.566+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Airflow_Depi.generate_random manual__2025-10-02T23:07:06.260259+00:00 [queued]>
+[2025-10-02T23:07:14.567+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-10-02T23:07:14.586+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): generate_random> on 2025-10-02 23:07:06.260259+00:00
+[2025-10-02T23:07:14.597+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=178) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-02T23:07:14.600+0000] {standard_task_runner.py:63} INFO - Started process 180 to run task
+[2025-10-02T23:07:14.601+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Airflow_Depi', 'generate_random', 'manual__2025-10-02T23:07:06.260259+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/Airflow_Depi.py', '--cfg-path', '/tmp/tmpy7ddyxu_']
+[2025-10-02T23:07:14.605+0000] {standard_task_runner.py:91} INFO - Job 32: Subtask generate_random
+[2025-10-02T23:07:14.627+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2025-10-02T23:07:14.693+0000] {task_command.py:426} INFO - Running <TaskInstance: Airflow_Depi.generate_random manual__2025-10-02T23:07:06.260259+00:00 [running]> on host 75d72fd7eefe
+[2025-10-02T23:07:14.811+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Airflow_Depi' AIRFLOW_CTX_TASK_ID='generate_random' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T23:07:06.260259+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T23:07:06.260259+00:00'
+[2025-10-02T23:07:14.815+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T23:07:14.816+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T23:07:14.816+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/Airflow_Depi.py", line 10, in generate_random
+    number = random.randint(1, 100)
+             ^^^^^^
+NameError: name 'random' is not defined. Did you forget to import 'random'
+[2025-10-02T23:07:14.833+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Airflow_Depi, task_id=generate_random, run_id=manual__2025-10-02T23:07:06.260259+00:00, execution_date=20251002T230706, start_date=20251002T230714, end_date=20251002T230714
+[2025-10-02T23:07:14.852+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 32 for task generate_random (name 'random' is not defined; 180)
+[2025-10-02T23:07:14.895+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-02T23:07:14.922+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T23:07:14.926+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
