@@ -28,9 +28,9 @@ Task 1 → Task 2 → Task 3
 ---
 ## 📸 Screenshots
 - DAG Graph View  
-  ![DAG Graph View](/images/screenshot1.png)
+  ![DAG Graph View](/images/Screenshot1.png)
 - Task Logs  
-  ![Task Logs](/images/screenshot2.png)
+  ![Task Logs](/images/Screenshot2.png)
 
 ## 📝 Notes
 - Task 1: Prints the current system date in Bash  
